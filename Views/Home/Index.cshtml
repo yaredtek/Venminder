@@ -1,0 +1,110 @@
+﻿@model BowlingViewModel
+
+<h5>Bowling Score sheet Calculator</h5>
+
+@using (Html.BeginForm("Bowling", "Home", FormMethod.Post))
+{
+    <div>
+        <label>Enter Roles</label>
+        <div>
+            @* @Html.LabelFor(m => m.RollsInput)
+        @Html.TextBoxFor(m => m.RollsInput)*@
+            <div class="row col-md-8 table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Frame #</th>
+                            <th scope="col">Roll 1</th>
+                            <th scope="col">Roll 2</th>
+                            <th scope="col">Roll 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll1)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll2)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll3)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll4)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll5)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll6)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll7)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll8)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll9)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll10)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll11)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll12)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll13)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll14)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll15)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll16)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll17)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll18)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll19)</td>
+                            <td class="rollTextBox">@Html.TextBoxFor(m => m.Roll20)</td>
+                            <td>@Html.TextBoxFor(m => m.Roll21)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" hidden id="calculateTotalScore" value="Calculate Score" />
+    </div>
+}
+
+<div class="mt-1">
+    <h3>Total Score: @Model.FinalScore</h3>
+</div>
+
+
+
+@section scripts {
+    <script>
+        $('td.rollTextBox input').keyup(function () {
+            $(document).ready(function () {
+                $('#calculateTotalScore').focus().click()
+            })
+        });
+    </script>
+}
+
+
